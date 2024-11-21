@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kingdom's Railway Network</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="menu">
+        <h1>Kingdom's Railway Network</h1>
+        <label for="playerName">Name: </label>
+        <input type="text" id="playerName" placeholder="Enter your name" required>
+        <label for="difficultySelect">Select Difficulty:</label>
+        <select id="difficultySelect">
+            <option value="5">Easy (5x5)</option>
+            <option value="7">Hard (7x7)</option>
+        </select>
+
+        <button id="startGameButton">Start Game</button>
+        <!-- <button id="leaderboardButton">Show Leaderboard</button> -->
+        <button id="descriptionButton">Game Description</button>
+    </div>
+
+    <div id="descriptionMenu" class="popup hidden">
+        <h2>Game Description</h2>
+        <p>In Seeknotland, King No-Name wants to build a circular railway that visits every corner of his realm. The task is entrusted to Trickles, the royal advisor, whose work is made difficult by the kingdom's varied terrain.
+            Let's help Trickles design the map for the kingdom's railway network!</p>
+        <button id="closeDescription">Close</button>
+    </div>
+
+
+    <!-- <div id="leaderboardPopup" class="popup hidden">
+        <h2>Leaderboard</h2>
+        <ul id="leaderboardList"></ul>
+        <button id="closeLeaderboard">Close</button>
+    </div> -->
+
+    <!-- <div id="gameArea" class="hidden">
+        <h2 id="gameTitle">Player: <span id="playerDisplay"></span></h2>
+        <div id="timer">Time Elapsed: <span id="elapsedTime">0s</span></div>
+        <div id="gameGrid" class="grid"></div>
+        <div id="palette">
+            <h3>Select Railway Element</h3>
+            <button class="paletteButton" data-type="rail">Rail</button>
+            <button class="paletteButton" data-type="bridge">Bridge</button>
+            <button class="paletteButton" data-type="rock">Rock</button>
+        </div>
+        <button id="backToMenu">Back to Menu</button>
+    </div> -->
+
+    <div class="gameArea">
+        <div class="game-info">
+            <h3 id="playerNameDisplay"></h3>
+            <h4 id="timeElapsed">Time: 0s</h4>
+        </div>
+        <div id="gameBoard"></div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
