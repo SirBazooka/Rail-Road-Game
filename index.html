@@ -3,62 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kingdom's Railway Network</title>
+<title>Game Menu</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div id="menu">
-        <h1>Kingdom's Railway Network</h1>
-        <label for="playerName">Name: </label>
-        <input type="text" id="playerName" placeholder="Enter your name" required>
-        <label for="difficultySelect">Select Difficulty:</label>
-        <select id="difficultySelect">
-            <option value="5">Easy (5x5)</option>
-            <option value="7">Hard (7x7)</option>
-        </select>
-
-        <button id="startGameButton">Start Game</button>
-        <!-- <button id="leaderboardButton">Show Leaderboard</button> -->
-        <button id="descriptionButton">Game Description</button>
-    </div>
-
-    <div id="descriptionMenu" class="popup hidden">
-        <h2>Game Description</h2>
-        <p>In Seeknotland, King No-Name wants to build a circular railway that visits every corner of his realm. The task is entrusted to Trickles, the royal advisor, whose work is made difficult by the kingdom's varied terrain.
-            Let's help Trickles design the map for the kingdom's railway network!</p>
-        <button id="closeDescription">Close</button>
-    </div>
-
-
-    <!-- <div id="leaderboardPopup" class="popup hidden">
-        <h2>Leaderboard</h2>
-        <ul id="leaderboardList"></ul>
-        <button id="closeLeaderboard">Close</button>
-    </div> -->
-
-    <!-- <div id="gameArea" class="hidden">
-        <h2 id="gameTitle">Player: <span id="playerDisplay"></span></h2>
-        <div id="timer">Time Elapsed: <span id="elapsedTime">0s</span></div>
-        <div id="gameGrid" class="grid"></div>
-        <div id="palette">
-            <h3>Select Railway Element</h3>
-            <button class="paletteButton" data-type="rail">Rail</button>
-            <button class="paletteButton" data-type="bridge">Bridge</button>
-            <button class="paletteButton" data-type="rock">Rock</button>
+    <div id="main-menu" class="page">
+        <h1>Rail Game</h1>
+        <div>
+            <label for="player-name">Name:</label>
+            <input type="text" id="player-name" placeholder="Enter your name">
         </div>
-        <button id="backToMenu">Back to Menu</button>
-    </div> -->
-
-    <div class="gameArea">
-        <div class="game-info">
-            <h3 id="playerNameDisplay"></h3>
-            <h4 id="timeElapsed">Time: 0s</h4>
+        <div>
+            <label for="difficulty">Map Difficulty:</label>
+            <select id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="hard">Hard</option>
+            </select>
         </div>
-        <div id="gameBoard"></div>
+        <button id="start-game-btn">Start Game</button>
+        <button id="game-description-btn">Game Description</button>
+        <button id="leaderboard-btn">Leaderboard</button>
+    </div>
+
+    <div id="game-page" class="page hidden">
+        <h2>Game Started!</h2>
+        <div id="game-info">
+            <p><strong>Player:</strong> <span id="display-name"></span></p>
+            <p><strong>Time Elapsed:</strong> <span id="time-elapsed">0s</span></p>
+        </div>
+        <div id="game-grid"></div>
+        <!-- Add Rail Tile Palette -->
+        <div id="rail-tile-palette" class="palette">
+        <div class="rail-tile straight" data-tile="R"></div>
+        <div class="rail-tile curve" data-tile="C"></div> <!-- C for curve rail -->
+        </div>
+
+        <button id="back-to-menu-btn">Back to Menu</button>
+    </div>
+
+    
+    <div id="description-popup" class="page hidden">
+        <h3>Game Description</h3>
+        <p>Welcome to Rail Game, an exciting grid-based puzzle game where your goal is to build a functional railway network across a challenging landscape. Connect the tracks, avoid obstacles, and make sure your trains can smoothly navigate without interruption. The game offers multiple difficulty levels, with more complex puzzles as you advance. Test your planning and problem-solving skills as you race against time to complete the track!</p>
+        <p>Use left click to place tiles on the grid and right click to rotate them, aligning the tracks properly. Ensure all connections are smooth; mismatched tracks will prevent the train from moving forward. Once you complete a functional track, your completion time is recorded and added to the leaderboard. Aim to finish quickly and challenge yourself at higher difficulty levels to secure a top spot!</p>
+        <button id="close-description-btn">Close</button>
     </div>
 
 
-    <script src="script.js"></script>
+    <div id="leaderboard-popup" class="page hidden">
+        <h3>Leaderboard</h3>
+        <ol id="leaderboard-list-menu">
+            
+        </ol>
+        <button id="close-leaderboard-btn">Close</button>
+    </div>
+
+
+    <div id="message-modal" class="modal hidden">
+        <div class="modal-content">
+            <p id="message-text"></p>
+            <h3>Leaderboard</h3>
+            <ol id="leaderboard-list"></ol>
+            <button id="close-message-btn">Close</button>
+        </div>
+    </div>
+
+<script src="script.js"></script>
 </body>
 </html>

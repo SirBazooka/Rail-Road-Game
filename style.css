@@ -1,126 +1,167 @@
+/* Basic styling */
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
 }
 
 .hidden {
-    display: none;
+  display: none !important;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
 }
 
 button {
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-#menu, #gameArea, .popup {
-    background-color: #fff;
-    border: 2px solid #333;
-    padding: 20px;
-    text-align: center;
-    width: 300px;
-}
-
-/* Grid Styles */
-.grid {
-    display: grid;
-    gap: 2px;
-    margin: 20px 0;
-}
-
-#gameGrid {
-    border: 1px solid #333;
-}
-
-/* For 5x5 and 7x7 grids */
-.grid[data-size='5'] {
-    grid-template-columns: repeat(5, 1fr);
-    width: 250px;
-    height: 250px;
-}
-
-.grid[data-size='7'] {
-    grid-template-columns: repeat(7, 1fr);
-    width: 350px;
-    height: 350px;
-}
-
-.cell {
-    width: 100%;
-    height: 100%;
-    background-color: #eee;
-    border: 1px solid #ccc;
-    cursor: pointer;
-}
-
-.cell[data-type='empty'] {
-    background-image: url('pics/tiles/empty.png');
-    background-size: cover;
-}
-
-.cell[data-type='rail'] {
-    babcground-image: url('pics/tiles/rail.png');
-    background-size: cover;
-}
-
-.cell[data-type='bridge'] {
-    background-image: url('pics/tiles/bridge.png');
-    background-size: cover;
-}
-
-.cell[data-type='mountain'] {
-    background-image: url('pics/tiles/mountain.png');
-    background-size: cover;
-}
-
-/* Popups */
-
-.popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    padding: 20px;
-    background-color: #fff;
-    border: 2px solid #333;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+button:hover {
+  background-color: #0056b3;
 }
 
 
-.gameArea {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .game-info {
-    display: flex;
-    justify-content: space-between;
-    width: 300px;
-  }
-  
-  #gameBoard {
-    display: grid;
-    gap: 5px;
-  }
-  
-  #gameBoard div {
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
-  }
-  
-  /* Tile colors */
-  .mountain { background-color: #8B4513; }
-  .bridge { background-color: #DAA520; }
-  .oasis { background-color: #00FF7F; }
-  .empty { background-color: #FFFFFF; }
-  
+#game-grid {
+  display: grid;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+
+.grid-cell {
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  border: 1px solid #999;
+  border-radius: 4px;
+}
+
+.cell-mountain {
+  background-image: url('pics/tiles/mountain.png');
+}
+
+.cell-mountain-rail {
+  background-image: url('pics/tiles/mountain_rail.png');
+}
+
+.cell-bridge {
+  background-image: url('pics/tiles/bridge.png');
+}
+
+.cell-bridge-rail {
+  background-image: url('pics/tiles/bridge_rail.png');
+}
+
+.cell-straight-rail {
+  background-image: url('pics/tiles/straight_rail.png');
+}
+
+.cell-curve-rail{
+  background-image: url('pics/tiles/curve_rail.png');
+}
+
+.cell-oasis {
+  background-image: url('pics/tiles/oasis.png');
+}
+
+.cell-empty {
+  background-image: url('pics/tiles/empty.png');
+}
+
+
+
+
+
+.palette {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.rail-tile {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #323232;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.straight {
+  background-image: url("./pics/tiles/straight_rail.png") !important;
+  background-size: cover;
+}
+
+.curve {
+  background-image: url("pics/tiles/curve_rail.png");
+  background-size: cover;
+}
+
+.rail-tile:hover {
+  opacity: 0.8;
+}
+
+.rail-tile-active {
+  width: 40px;
+  height: 40px;
+  border: 1px solid red;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+
+#message-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+#message-text {
+  margin-bottom: 20px;
+}
+
+#close-message-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#close-message-btn:hover {
+  background-color: #0056b3;
+}
+
+#leaderboard-list {
+  list-style-type: decimal; 
+  padding-left: 20px; 
+}
+
+#leaderboard-list li {
+  font-size: 16px; 
+  margin-bottom: 5px; 
+}
